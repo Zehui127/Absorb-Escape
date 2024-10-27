@@ -7,7 +7,7 @@ Absorb&amp; Escape: A generalizable sampling algorithm for DNA generation combin
 
 A standalone version of the Fast Absorb-Escape algorithm can be found in `AE_sampler.py`. Below is the pseudocode to help implement the Fast Absorb-Escape algorithm:
 
-```
+```math
 Input:
 - Absorb Threshold (T_Absorb)
 - Pretrained AutoRegressive model (p_AR)
