@@ -5,36 +5,35 @@ Absorb&amp; Escape: A generalizable sampling algorithm for DNA generation combin
 
 ## Standalone Implementation of Fast Absorb-Escape
 
-## Fast Absorb-Escape Algorithm
-
 A standalone version of the Fast Absorb-Escape algorithm can be found in `AE_sampler.py`. Below is the pseudocode to help implement the Fast Absorb-Escape algorithm:
 
-```pseudo
+```
 Input:
 - Absorb Threshold (T_Absorb)
 - Pretrained AutoRegressive model (p_AR)
 - Pretrained Diffusion Model (p_DM)
 
 Algorithm:
-1. Initialize \tilde{x}^0 \sim p_{DM}(x)
+1. Initialize x̃⁰ ~ p_DM(x)
 
-2. for i = 0 to len(\tilde{x}):
-       if p_{DM} < T_{Absorb}:
+2. for i = 0 to len(x̃):
+       if p_DM < T_Absorb:
            # Absorb Step
            j = i + 1
-           \tilde{x}'_j \sim p_{AR}(x_j \mid x_{0:i})
+           x̃'_j ~ p_AR(x_j | x_0:i)
 
-           while p_{AR}(\tilde{x}'_j) > p_{DM}(\tilde{x}_j):
+           while p_AR(x̃'_j) > p_DM(x̃_j):
                j = j + 1
                # Refine inaccurate region token by token
-               \tilde{x}'_j \sim p_{AR}(x_j \mid x_{0:i}, x_{i:j-1})
+               x̃'_j ~ p_AR(x_j | x_0:i, x_i:j-1)
 
            # Escape Step
-           \tilde{x}_{i:j} = \tilde{x}'_{i:j}
+           x̃_i:j = x̃'_i:j
            i = i + j
 
 Output:
-- Refined sequence \tilde{x} with improved quality
+- Refined sequence x̃ with improved quality
+
 ```
 
 ## Reproduction of Experiment
