@@ -19,16 +19,16 @@ A standalone version of the Fast Absorb-Escape algorithm can be found in `AE_sam
 \\
 & 2. \text{ for } i = 0 \text{ to } len(\tilde{x}): \\
 & \quad \text{if } p^{DM} < T_{Absorb}: \\
-& \quad\quad \text{# Absorb Step} \\
+& \quad\quad \text{/* Absorb Step */} \\
 & \quad\quad j = i + 1 \\
 & \quad\quad \tilde{x}'_j \sim p^{AR}(x_j | x_{0:i}) \\
 \\
 & \quad\quad \text{while } p^{AR}(\tilde{x}'_j) > p^{DM}(\tilde{x}_j): \\
 & \quad\quad\quad j = j + 1 \\
-& \quad\quad\quad \text{# Refine inaccurate region token by token} \\
+& \quad\quad\quad \text{/* Refine inaccurate region token by token */} \\
 & \quad\quad\quad \tilde{x}'_j \sim p^{AR}(x_j | x_{0:i}, x_{i:j-1}) \\
 \\
-& \quad\quad \text{# Escape Step} \\
+& \quad\quad \text{/* Escape Step */} \\
 & \quad\quad \tilde{x}_{i:j} = \tilde{x}'_{i:j} \\
 & \quad\quad i = i + j \\
 \\
