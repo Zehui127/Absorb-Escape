@@ -1,7 +1,7 @@
 # Absorb-Escape
 Absorb&amp; Escape: A generalizable sampling algorithm for DNA generation combining diffusion model and auto-regressive model
 
-[Paper Link](https://neurips.cc/virtual/2024/poster/94782) (Neural Information Processing Systems, 2024)
+Absorb \& Escape: Overcoming Single Model Limitations in Generating Genomic Sequences (Neural Information Processing Systems, 2024) [Paper Link](https://neurips.cc/virtual/2024/poster/94782)
 
 ## Standalone Implementation of Fast Absorb-Escape
 
