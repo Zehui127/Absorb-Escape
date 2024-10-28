@@ -42,7 +42,38 @@ A standalone version of the Fast Absorb-Escape algorithm can be found in `AE_sam
 
 We have implemented A\&E with the codebase of [Dirichlet Flow Matching with Applications to DNA Sequence Design](https://github.com/HannesStark/dirichlet-flow-matching/tree/main). The installation of depdenencies and evaluation data are the same as the original repository. The only difference is that checkpoint an additional checkpoint file needs to be downloaded. For running the experiment, please follow the instructions below to reproduce the experiment:
 
-### Toy Example (on Synthetic Data generated from Hidden Markov Model)
+Step1. Installing the required package
+```yaml
+### Conda environment
+conda create -c conda-forge -n seq python=3.9
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
+pip install torch_geometric jupyterlab gpustat pyyaml wandb biopython spyrmsd einops biopandas plotly seaborn prody tqdm lightning imageio tmtools "fair-esm[esmfold]" e3nn
+pip install torch_scatter torch_sparse torch_cluster -f https://data.pyg.org/whl/torch-2.1.0+cu113.htm
 
+# The libraries below are required for the promoter design experiments
+git clone https://github.com/kathyxchen/selene.git
+cd selene
+git checkout custom_target_support
+python setup.py build_ext --inplace
+python setup.py install
+pip install pyBigWig pytabix cooler pyranges biopython cooltools
+```
+Step2. Download the reference genome and the evaluation data from https://zenodo.org/records/7943307. Place it in `DFM-with-Absorb-Escape/data`. Or you need to edit the path config in `DFM-with-Absorb-Escape/utils/promoter_dataset.py` and line 29 of `DFM-with-Absorb-Escape/lightning_modules/promoter_module_refine.py`to point to the correct path
+
+Step3. Download the checkpoint of the pretrained model `ae.ckpt` from [here](https://huggingface.co/Zehui127127/Absorb-Escape/tree/main), this checkpoint is simply the combination of pretrained **DFM distilled** and **AR model** by the original DFM paper.
+
+Step4. Run inference on the test set, where the --ckpt shoud be the path of downloaded checkpoint file `ae.ckpt`. This will run the Absorb-Escape algorithm on the test set and generate the refined sequences.
+
+```bash
+cd DFM-with-Absorb-Escape
+python -m train_promo --run_name dirichlet_flow_matching_distilled --batch_size 128 --wandb --num_workers 4 --num_integration_steps 100 --ckpt workdir/ae.ckpt --validate --validate_on_test --mode distill
+```
+
+
+### Toy Example (on Synthetic Data generated from Hidden Markov Model)
+TODO
+Will be updated soon
 
 ### Multi-species DNA Sequences Generation
+TODO
+Will be updated soon

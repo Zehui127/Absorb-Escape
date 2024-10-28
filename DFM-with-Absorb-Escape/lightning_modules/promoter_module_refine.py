@@ -26,7 +26,7 @@ class PromoterModuleAR(GeneralModule):
         self.ar_model = PromoterModel(ar_args)
         self.condflow = DirichletConditionalFlow(K=self.model.alphabet_size, alpha_spacing=0.01, alpha_max=args.alpha_max)
 
-        self.seifeatures = pd.read_csv('/mnt/data/zl6222/neurIPS_rebuttal/data/promoter_design/target.sei.names', sep='|', header=None)
+        self.seifeatures = pd.read_csv('/data/promoter_design/target.sei.names', sep='|', header=None)
         self.sei_cache = {}
         self.loaded_distill_model = False
 

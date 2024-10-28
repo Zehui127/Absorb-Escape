@@ -1,7 +1,6 @@
 from utils.parsing import parse_train_args
 from lightning_modules.promoter_module import PromoterModule
 from lightning_modules.promoter_module_refine import PromoterModuleAR
-from lightning_modules.promoter_module_dfm import PromoterModuleDFM
 
 from utils.promoter_dataset import PromoterDataset
 import copy
@@ -50,11 +49,9 @@ val_loader = torch.utils.data.DataLoader(val_ds, batch_size=args.batch_size, shu
 print("Len train_ds: ", len(train_ds))
 print("Len val_ds: ", len(val_ds))
 
-# model = PromoterModuleAR(args, AR_CONFIG)
-model = PromoterModuleDFM(args, AR_CONFIG)
+model = PromoterModuleAR(args, AR_CONFIG)
 # model = PromoterModule(args)
 if args.validate:
-    # trainer.validate(model, train_loader if AR_CONFIG.validate_on_train else val_loader, ckpt_path=AR_CONFIG.ckpt)
     trainer.validate(model, train_loader if args.validate_on_train else val_loader, ckpt_path=args.ckpt)
 else:
     trainer.fit(model, train_loader, val_loader, ckpt_path=args.ckpt)
