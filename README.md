@@ -1,7 +1,7 @@
 # Absorb-Escape
 Absorb&amp; Escape: A generalizable sampling algorithm for DNA generation combining diffusion model and auto-regressive model
 
-Absorb \& Escape: Overcoming Single Model Limitations in Generating Genomic Sequences (Neural Information Processing Systems, 2024) [Paper Link](https://neurips.cc/virtual/2024/poster/94782)
+Absorb \& Escape: Overcoming Single Model Limitations in Generating Genomic Sequences (Neural Information Processing Systems, 2024) [Paper Link](https://arxiv.org/abs/2410.21345)
 
 ## Standalone Implementation of Fast Absorb-Escape
 
@@ -40,7 +40,7 @@ A standalone version of the Fast Absorb-Escape algorithm can be found in `AE_sam
 ## Reproduction of Experiment
 ### Transcription Profile conditioned Promoter Design
 
-We have implemented A\&E with the codebase of [Dirichlet Flow Matching with Applications to DNA Sequence Design](https://github.com/HannesStark/dirichlet-flow-matching/tree/main). The installation of depdenencies and evaluation data are the same as the original repository. The only difference is that checkpoint an additional checkpoint file needs to be downloaded. For running the experiment, please follow the instructions below to reproduce the experiment:
+We have implemented A\&E with the codebase of [Dirichlet Flow Matching with Applications to DNA Sequence Design](https://github.com/HannesStark/dirichlet-flow-matching/tree/main). The installation of depdenencies and evaluation data are the same as the original repository. The only difference is that an additional checkpoint file needs to be downloaded. For running the experiment, please follow the instructions below to reproduce the experiment:
 
 Step1. Installing the required package
 ```yaml
