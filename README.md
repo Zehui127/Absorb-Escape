@@ -1,5 +1,4 @@
 # Absorb-Escape
-Absorb&amp; Escape: A generalizable sampling algorithm for DNA generation combining diffusion model and auto-regressive model
 
 Absorb \& Escape: Overcoming Single Model Limitations in Generating Genomic Sequences (Neural Information Processing Systems, 2024) [Paper Link](https://arxiv.org/abs/2410.21345)
 
