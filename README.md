@@ -69,10 +69,6 @@ python -m train_promo --run_name dirichlet_flow_matching_distilled --batch_size 
 ```
 
 
-### Toy Example (on Synthetic Data generated from Hidden Markov Model)
-TODO
-Will be updated soon
 
 ### Multi-species DNA Sequences Generation
-TODO
-Will be updated soon
+Please See https://github.com/Zehui127/Latent-DNA-Diffusion and https://github.com/Genentech/regLM, where we implement the A\&E algrithm based on these two algorithms. 
